@@ -8,8 +8,9 @@ from emonet.emonet.emonet.models import EmoNet
 
 from retico_core import AbstractModule
 from retico_core import UpdateMessage, UpdateType
-from retico_core.text import TextIU
+from retico_core.abstract import UpdateType
 from retico_vision import ImageIU
+from fer_output_iu import FEROutputIU
 
 
 class FERModule(AbstractModule):
@@ -27,14 +28,14 @@ class FERModule(AbstractModule):
 
     @staticmethod
     def output_iu():
-        return TextIU
+        return FEROutputIU
 
     def __init__(self, emotions_set_size=5, **kwargs):
         super().__init__(**kwargs)
         self.previous_timestamp = None
         self.previous_decision = None
         self.n_classes = emotions_set_size
-        self.device = 'cpu'
+        self.device = 'cuda'
         self.image_size = 256
         self.emotion_class_sets = {
             5: {
@@ -48,6 +49,10 @@ class FERModule(AbstractModule):
         self.emotion_classes = self.emotion_class_sets[self.n_classes]
         self.model = self.load_model()
         self.face_detector = dlib.get_frontal_face_detector()
+
+        self.emotion = None
+        self.valence = 0.0
+        self.arousal = 0.0
 
     def load_model(self):
         model_dir = Path(__file__).resolve().parents[1] / 'retico_fer' / 'emonet' / 'emonet' / 'pretrained'
@@ -84,8 +89,8 @@ class FERModule(AbstractModule):
 
         resized = cv2.resize(cropped_face, (self.image_size, self.image_size))
 
-        cv2.imshow("Resized Face", cv2.cvtColor(resized, cv2.COLOR_RGB2BGR))
-        cv2.waitKey(1)
+        # cv2.imshow("Resized Face", cv2.cvtColor(resized, cv2.COLOR_RGB2BGR))
+        # cv2.waitKey(1)
 
         image_tensor = torch.tensor(resized, dtype=torch.float32).permute(2, 0, 1) / 255.0
         return image_tensor.to(self.device)
@@ -111,7 +116,18 @@ class FERModule(AbstractModule):
         print("Processing IU...")
         image = input_iu.image
         emotion, valence, arousal = self.get_face_emotion_data(face_image=image)
-        print(f"Emotion: {emotion}, Valence: {valence}, Arousal: {arousal}")
+        self.emotion = emotion
+        self.valence = valence
+        self.arousal = arousal
+        print(f"Emotion: {self.emotion}, Valence: {self.valence}, Arousal: {self.arousal}")
+
+        output_iu : FEROutputIU = self.create_iu(input_iu)
+        return UpdateMessage.from_iu(output_iu, UpdateType.ADD)
+
+    def create_iu(self, grounded_in=None):
+        output_iu : FEROutputIU = super().create_iu(grounded_in=grounded_in)
+        output_iu.set_output_fields(self.emotion, self.valence, self.arousal)
+        return output_iu
 
     def show_image(self, image):
         # Convert PIL image to NumPy array
@@ -124,6 +140,7 @@ class FERModule(AbstractModule):
         cv2.imshow("Webcam Emotion Recognition", image_bgr)
         cv2.waitKey(0)
         cv2.destroyAllWindows()
+
 
 
 
