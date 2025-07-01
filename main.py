@@ -12,9 +12,10 @@ webcam = WebcamModule(640, 480)
 fer = FERModule()
 fer_data_image_writer = FERDataImageWriterModule()
 screen = ScreenModule()
-# debug = DebugModule()
+debug = DebugModule()
 
 webcam.subscribe(fer)
+# fer.subscribe(debug)
 fer.subscribe(fer_data_image_writer)
 fer_data_image_writer.subscribe(screen)
 
