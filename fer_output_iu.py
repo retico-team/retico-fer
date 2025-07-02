@@ -1,14 +1,20 @@
 from retico_core.abstract import IncrementalUnit
 
 class FEROutputIU(IncrementalUnit):
-    """A Dialogue Manager Decision.
+    """
+    FERModule
+    ---------
 
-    This IU represents the output for the Facial Expression Recognition process.
+    An Incremental Unit containing data from a Facial Expression Recognition module.
 
     Attributes:
-        emotion (string): The estimated emotion by the FER model.
-        valence (string): The computed emotional valence.
-        arousal (string): The computed emotional arousal.
+    -----------
+    - emotion : str
+        The estimated emotion by the FER model.
+    - valence : str
+        The computed emotional valence.
+    - arousal : str
+        The computed emotional arousal.
     """
 
     @staticmethod
@@ -17,8 +23,7 @@ class FEROutputIU(IncrementalUnit):
 
     def __init__(self, creator=None, iuid=0, previous_iu=None, grounded_in=None,
                  payload=None, emotion=None, valence=0.0, arousal=0.0, **kwargs):
-        """Initialize the FerOutput.
-        """
+
         super().__init__(creator=creator, iuid=iuid, previous_iu=previous_iu,
                          grounded_in=grounded_in, payload=payload)
         self.emotion = emotion
