@@ -1,0 +1,8 @@
+torch
+dlib
+numpy
+opencv-python
+Pillow
+retico_core @ git+https://github.com/retico-team/retico-core.git
+retico_screen @ git+https://github.com/DavidC001/retico-screen.git
+emonet @ git+https://github.com/face-analysis/emonet.git

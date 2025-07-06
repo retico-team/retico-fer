@@ -41,7 +41,6 @@ class FERDataImageWriterModule(AbstractModule):
     def process_update(self, update_message):
         for iu, um in update_message:
             if um == UpdateType.ADD:
-                print(f"---Grounded id IU: {iu.grounded_in}---")
                 return self.process_iu(iu)
 
 
