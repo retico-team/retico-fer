@@ -1,6 +1,3 @@
-Here is the updated `README.md` file with the `PYTHONPATH` shell command for adding the `EmoNet` directory:
-
-```markdown
 # Retico Facial Expression Recognition Module
 
 ## Overview
@@ -15,7 +12,7 @@ To run this project, the following dependencies are required:
 - **retico-core**: A framework for incremental dialogue systems.
   - Install via pip: `pip install retico-core`
 - **retico-vision**: A module for vision-based incremental units.
-  - Install via pip: `pip install retico-vision`
+  - Install retico-vision manually (see installation steps below).
 - **OpenCV**: For image processing and visualization.
   - Install via pip: `pip install opencv-python`
 - **NumPy**: For numerical operations.
@@ -57,13 +54,25 @@ Since the `EmoNet` repository does not include a `setup.py` or `pyproject.toml` 
    ```bash
    git clone https://github.com/face-analysis/emonet.git
    ```
-2. Add the `emonet` directory to your `PYTHONPATH` environment variable:
-   ```bash
-   export PYTHONPATH=$PYTHONPATH:/path/to/emonet
+2. Add the `emonet` directory to your `PYTHONPATH` environment variable using PowerShell:
+   ```powershell
+   $env:PYTHONPATH="$env:PYTHONPATH;C:\path\to\emonet"
    ```
-   Replace `/path/to/emonet` with the actual path to the `emonet` directory.
+   Replace `C:\path\to\emonet` with the actual path to the `emonet` directory.
 
-### Step 4: Place Pretrained EmoNet Model Files
+### Step 4: Install retico-vision Manually
+Since `retico-vision` must be installed manually, follow these steps:
+1. Clone the `retico-vision` repository:
+   ```bash
+   git clone https://github.com/retico-team/retico-vision.git
+   ```
+2. Add the `retico-vision` directory to your `PYTHONPATH` environment variable using PowerShell:
+   ```powershell
+   $env:PYTHONPATH="$env:PYTHONPATH;C:\path\to\retico-vision"
+   ```
+   Replace `C:\path\to\retico-vision` with the actual path to the `retico-vision` directory.
+
+### Step 5: Place Pretrained EmoNet Model Files
 Download the pretrained EmoNet model files (`emonet_5.pth` or `emonet_8.pth`) and place them in the following directory:
 ```
 retico_fer/emonet/emonet/pretrained/

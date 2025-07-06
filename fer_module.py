@@ -6,7 +6,7 @@ from torch import nn
 import dlib
 from collections import deque
 import threading
-from emonet.emonet.emonet.models import EmoNet
+from emonet.emonet.models import EmoNet
 
 from retico_core import AbstractModule
 from retico_core import UpdateMessage
@@ -106,7 +106,7 @@ class FERModule(AbstractModule):
         self._fer_thread.start()
 
     def load_model(self):
-        model_dir = Path(__file__).resolve().parents[1] / 'retico_fer' / 'emonet' / 'emonet' / 'pretrained'
+        model_dir = Path(__file__).resolve().parents[1] / 'retico_fer' / 'emonet' / 'pretrained'
         emotions_class_size = len(self._emotion_classes.keys())
         state_dict_path = model_dir / f'emonet_{emotions_class_size}.pth'
         print(f'Loading the fer_model from {state_dict_path}.')
