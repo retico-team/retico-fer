@@ -6,7 +6,7 @@ from torch import nn
 import dlib
 from collections import deque
 import threading
-from emonet.emonet.models import EmoNet
+from emonet.models import EmoNet
 
 from retico_core import AbstractModule
 from retico_core import UpdateMessage
