@@ -1,6 +1,7 @@
-### README
+Here is the updated `README.md` file with the `PYTHONPATH` shell command for adding the `EmoNet` directory:
 
-# Facial Expression Recognition Module (FERModule)
+```markdown
+# Retico Facial Expression Recognition Module
 
 ## Overview
 This project implements a Facial Expression Recognition (FER) module using the `EmoNet` model, integrated with the `retico-core` and `retico-vision` frameworks. The module processes input images, detects faces, and predicts emotions along with valence and arousal values.
@@ -10,7 +11,7 @@ To run this project, the following dependencies are required:
 
 ### Python Libraries
 - **EmoNet**: A pretrained deep learning model for emotion recognition.
-  - Install EmoNet from its repository or ensure the `emonet` package is available in your environment.
+  - Install EmoNet manually (see installation steps below).
 - **retico-core**: A framework for incremental dialogue systems.
   - Install via pip: `pip install retico-core`
 - **retico-vision**: A module for vision-based incremental units.
@@ -21,33 +22,57 @@ To run this project, the following dependencies are required:
   - Install via pip: `pip install numpy`
 - **Torch**: For deep learning computations.
   - Install via pip: `pip install torch`
+- **Torchvision**: For image transformations and pretrained models.
+  - Install via pip: `pip install torchvision`
 - **dlib**: For face detection.
   - Install via pip: `pip install dlib`
+- **Matplotlib**: For visualizing results.
+  - Install via pip: `pip install matplotlib`
+- **Scipy**: For scientific computations.
+  - Install via pip: `pip install scipy`
+- **Tqdm**: For progress bars.
+  - Install via pip: `pip install tqdm`
 
 ### Additional Requirements
 - **Pretrained EmoNet Model**: Ensure the pretrained EmoNet model files (`emonet_5.pth` or `emonet_8.pth`) are located in the `retico_fer/emonet/emonet/pretrained` directory.
 
 ## Installation
-1. Clone the repository:
-   ```bash
-   git clone <repository-url>
-   cd <repository-directory>
-   ```
 
-2. Install the required Python libraries:
-   ```bash
-   pip install -r requirements.txt
-   ```
+### Step 1: Clone the Repository
+Clone this repository to your local machine:
+```bash
+git clone https://github.com/SimplyMarious/retico_fer.git
+cd retico_fer
+```
 
-3. Place the pretrained EmoNet model files in the appropriate directory:
+### Step 2: Install Required Python Libraries
+Install the required Python libraries:
+```bash
+pip install -r requirements.txt
+```
+
+### Step 3: Install EmoNet Manually
+Since the `EmoNet` repository does not include a `setup.py` or `pyproject.toml` file, it must be installed manually:
+1. Clone the `EmoNet` repository:
+   ```bash
+   git clone https://github.com/face-analysis/emonet.git
    ```
-   retico_fer/emonet/emonet/pretrained/
+2. Add the `emonet` directory to your `PYTHONPATH` environment variable:
+   ```bash
+   export PYTHONPATH=$PYTHONPATH:/path/to/emonet
    ```
+   Replace `/path/to/emonet` with the actual path to the `emonet` directory.
+
+### Step 4: Place Pretrained EmoNet Model Files
+Download the pretrained EmoNet model files (`emonet_5.pth` or `emonet_8.pth`) and place them in the following directory:
+```
+retico_fer/emonet/emonet/pretrained/
+```
 
 ## Usage
 1. Run the FER module:
    ```bash
-   python fer_module.py
+   python main.py
    ```
 
 2. The module will process input images, detect faces, and output emotion data.
@@ -58,3 +83,4 @@ This project is licensed under the MIT License. See the `LICENSE` file for detai
 ## Acknowledgments
 - **EmoNet**: For providing the pretrained emotion recognition model.
 - **retico-core** and **retico-vision**: For enabling incremental processing and vision-based modules.
+```
