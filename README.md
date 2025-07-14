@@ -79,8 +79,9 @@ retico_fer/emonet/emonet/pretrained/
 ```
 
 ## Usage
-1. Run the FER module:
+1. Enter the retico_fer directory and run the FER module:
    ```bash
+   cd retico_fer
    python main.py
    ```
 
