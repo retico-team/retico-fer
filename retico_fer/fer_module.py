@@ -106,7 +106,7 @@ class FERModule(AbstractModule):
         self._fer_thread.start()
 
     def load_model(self):
-        model_dir = Path(__file__).resolve().parents[1] / 'retico_fer' / 'emonet' / 'pretrained'
+        model_dir = Path(__file__).resolve().parents[2] / 'retico_fer' / 'emonet' / 'pretrained'
         emotions_class_size = len(self._emotion_classes.keys())
         state_dict_path = model_dir / f'emonet_{emotions_class_size}.pth'
         print(f'Loading the fer_model from {state_dict_path}.')
@@ -135,7 +135,6 @@ class FERModule(AbstractModule):
                     print(f"Error computing FER: {e}")
 
     def process_iu(self, input_iu):
-        print("Processing FER IU...")
         image = input_iu.image
         emotion, valence, arousal = self.get_facial_expression_data(face_image=image)
         self._emotion = emotion
