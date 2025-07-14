@@ -6,7 +6,7 @@ from torch import nn
 import dlib
 from collections import deque
 import threading
-from emonet.models import EmoNet
+from emonet.emonet.models import EmoNet
 
 from retico_core import AbstractModule
 from retico_core import UpdateMessage
@@ -135,6 +135,7 @@ class FERModule(AbstractModule):
                     print(f"Error computing FER: {e}")
 
     def process_iu(self, input_iu):
+        print("Processing FER IU...")
         image = input_iu.image
         emotion, valence, arousal = self.get_facial_expression_data(face_image=image)
         self._emotion = emotion
