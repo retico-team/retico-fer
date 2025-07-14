@@ -11,9 +11,9 @@ fer_data_image_writer = FERDataImageWriterModule()
 screen = ScreenModule()
 
 webcam.subscribe(screen)
-# webcam.subscribe(fer)
-# fer.subscribe(fer_data_image_writer)
-# fer_data_image_writer.subscribe(screen)
+webcam.subscribe(fer)
+fer.subscribe(fer_data_image_writer)
+fer_data_image_writer.subscribe(screen)
 
 network.run(webcam)
 print("Running the webcam")
