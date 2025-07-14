@@ -54,11 +54,20 @@ Since the `EmoNet` repository does not include a `setup.py` or `pyproject.toml` 
    ```bash
    git clone https://github.com/face-analysis/emonet.git
    ```
-2. Add the `emonet` directory to your `PYTHONPATH` environment variable using PowerShell:
+
+2. Add the `emonet` directory to your `PYTHONPATH` environment variable:
+
+   **Using PowerShell**:
    ```powershell
    $env:PYTHONPATH="$env:PYTHONPATH;C:\path\to\emonet"
    ```
    Replace `C:\path\to\emonet` with the actual path to the `emonet` directory.
+
+   **Using Bash**:
+   ```bash
+   export PYTHONPATH="$PYTHONPATH:/path/to/emonet"
+   ```
+   Replace `/path/to/emonet` with the actual path to the `emonet` directory.
 
 ### Step 4: Install retico-vision Manually
 Since `retico-vision` must be installed manually, follow these steps:
@@ -66,12 +75,19 @@ Since `retico-vision` must be installed manually, follow these steps:
    ```bash
    git clone https://github.com/retico-team/retico-vision.git retico_vision
    ```
-2. Add the `retico-vision` directory to your `PYTHONPATH` environment variable using PowerShell:
+2. Add the `retico-vision` directory to your `PYTHONPATH` environment variable:
+
+   **Using PowerShell**:
    ```powershell
    $env:PYTHONPATH="$env:PYTHONPATH;C:\path\to\retico_vision"
    ```
    Replace `C:\path\to\retico_vision` with the actual path to the `retico_vision` directory.
 
+   **Using Bash**:
+   ```bash
+   export PYTHONPATH="$PYTHONPATH:/path/to/retico_vision"
+   ```
+   Replace `/path/to/retico_vision` with the actual path to the `retico_vision` directory.
 ### Step 5: Place Pretrained EmoNet Model Files
 Download the pretrained EmoNet model files (`emonet_5.pth` or `emonet_8.pth`) and place them in the following directory:
 ```
