@@ -8,7 +8,7 @@ This project implements a Facial Expression Recognition (FER) module using the `
 ### Step 1: Clone the Repository
 Clone this repository to your local machine:
 ```bash
-git clone https://github.com/SimplyMarious/retico_fer.git
+git clone https://github.com/SimplyMarious/retico-fer.git retico_fer
 cd retico_fer
 ```
 
