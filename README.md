@@ -58,11 +58,6 @@ Since `retico-vision` must be installed manually, follow these steps:
    export PYTHONPATH="$PYTHONPATH:/path/to/retico_vision"
    ```
    Replace `/path/to/retico_vision` with the actual path to the `retico_vision` directory.
-### Step 5: Place Pretrained EmoNet Model Files
-Download the pretrained EmoNet model files (`emonet_5.pth` or `emonet_8.pth`) and place them in the following directory:
-```
-retico_fer/emonet/emonet/pretrained/
-```
 
 ## Usage
 1. Enter the retico_fer directory and run the FER module:
@@ -78,5 +73,4 @@ This project is licensed under the MIT License. See the `LICENSE` file for detai
 
 ## Acknowledgments
 - **EmoNet**: For providing the pretrained emotion recognition model.
-- **retico-core** and **retico-vision**: For enabling incremental processing and vision-based modules.
-```
+``` 
