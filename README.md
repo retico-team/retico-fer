@@ -3,36 +3,6 @@
 ## Overview
 This project implements a Facial Expression Recognition (FER) module using the `EmoNet` model, integrated with the `retico-core` and `retico-vision` frameworks. The module processes input images, detects faces, and predicts emotions along with valence and arousal values.
 
-## Requirements
-To run this project, the following dependencies are required:
-
-### Python Libraries
-- **EmoNet**: A pretrained deep learning model for emotion recognition.
-  - Install EmoNet manually (see installation steps below).
-- **retico-core**: A framework for incremental dialogue systems.
-  - Install via pip: `pip install retico-core`
-- **retico-vision**: A module for vision-based incremental units.
-  - Install retico-vision manually (see installation steps below).
-- **OpenCV**: For image processing and visualization.
-  - Install via pip: `pip install opencv-python`
-- **NumPy**: For numerical operations.
-  - Install via pip: `pip install numpy`
-- **Torch**: For deep learning computations.
-  - Install via pip: `pip install torch`
-- **Torchvision**: For image transformations and pretrained models.
-  - Install via pip: `pip install torchvision`
-- **dlib**: For face detection.
-  - Install via pip: `pip install dlib`
-- **Matplotlib**: For visualizing results.
-  - Install via pip: `pip install matplotlib`
-- **Scipy**: For scientific computations.
-  - Install via pip: `pip install scipy`
-- **Tqdm**: For progress bars.
-  - Install via pip: `pip install tqdm`
-
-### Additional Requirements
-- **Pretrained EmoNet Model**: Ensure the pretrained EmoNet model files (`emonet_5.pth` or `emonet_8.pth`) are located in the `retico_fer/emonet/emonet/pretrained` directory.
-
 ## Installation
 
 ### Step 1: Clone the Repository
