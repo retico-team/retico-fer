@@ -72,4 +72,4 @@ Since `retico-vision` must be installed manually, follow these steps:
 This project is licensed under the MIT License. See the `LICENSE` file for details.
 
 ## Acknowledgments
-- **EmoNet**: For providing the pretrained emotion recognition model.
+- **EmoNet**: For providing the pretrained emotion recognition model (https://github.com/face-analysis/emonet).
