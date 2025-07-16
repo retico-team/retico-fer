@@ -73,4 +73,3 @@ This project is licensed under the MIT License. See the `LICENSE` file for detai
 
 ## Acknowledgments
 - **EmoNet**: For providing the pretrained emotion recognition model.
-``` 
