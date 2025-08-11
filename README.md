@@ -68,6 +68,10 @@ Since `retico-vision` must be installed manually, follow these steps:
 
 2. The module will process input images, detect faces, and output emotion data.
 
+## Video Tutorial
+
+- [Video tutorial in Google Drive](https://drive.google.com/file/d/1zqXHSDmy9bSu5OxREqRPV6FM-f9QwAZV/view?usp=drive_link)
+
 ## License
 This project is licensed under the MIT License. See the `LICENSE` file for details.
 
